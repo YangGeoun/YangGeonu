@@ -1,8 +1,6 @@
-n = int(input())
-sum = 0
+number = 10
+double = 2 * number
+print(double)
 
-for i in range(n):
-    sum = sum + i + 1
-
-print(sum)
-
+number = 5 
+print(double)
