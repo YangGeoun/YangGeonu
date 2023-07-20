@@ -33,7 +33,7 @@ def samsam(s, x, y):
 
 
 T = int(input())
-# 모든 가로줄 확인
+
 for n in range(T):
 
     sudoku = []
@@ -41,6 +41,7 @@ for n in range(T):
     for i in range(9):
         sudoku.append(list(map(int, input().split())))
 
+    #모든 가로줄 확인
     for k in range(9):
         if horizon(sudoku, k) == 0:
             answer = 0
