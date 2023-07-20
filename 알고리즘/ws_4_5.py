@@ -295,7 +295,7 @@ def is_validation(dic):
     
     if company in black_list:           #블랙리스트에 있는 기업이라면 아래의 코드를 진행할 필요없이 
         return 'blocked',[]             #바로 'blocked'와 빈 리스트를 리턴
-    
+                                        #빈리스트는 create_user()함수에서 변수에 담을 때 에러가 나와서 추가 (맨 아랫줄에 보충설명있음)
     if bg not in blood_types:                       #아래의 모든 if문은 각 정보가 잘 기입됬는지 확인하고
         temp_list.append('blood_group')             #틀린 곳이 있으면 temp_list에 그 내용을 담는다
 
@@ -305,11 +305,11 @@ def is_validation(dic):
     if len(name) < 2 or len(name) > 30:
         temp_list.append('name')
 
-    if not(bool(website)):
+    if len(website) == 0:
         temp_list.append('website')
     
     if not(bool(temp_list)):              #temp_list가 비었는지 확인하고 비었으면 True와 빈 리스트 리턴
-        return True, []                   
+        return True, []                   #빈리스트는 create_user()함수에서 변수에 담을 때 에러가 나와서 추가 (맨 아랫줄에 보충설명있음)
     else:                                 #temp_list에 요소가 하나라도 있으면 False와 틀린 정보를 담은 temp_list 리턴
         return False, temp_list
 
@@ -346,3 +346,16 @@ print(user_list)
 
 # for _ in user_list:            #user_list를 보기 편하게 출력하기 위한 코드
 #     print(_)
+
+
+
+
+# is_validation()함수에 빈리스트를 추가한 이유
+# 이유를 먼서 설명하면 create_user()함수에서 return된 값을 변수에 넣고 싶어서 입니다.
+# 틀린 부분이 있으면 무조건 2개의 데이터가 나와서 두개의 변수에 담을려고 했는데
+# return값이 하나일때 두개에 담을려고 할때 오튜가 발생하였다.
+# 어떻게 해야할까 고민하다가 사용하지 않을거지만 빈리스트를 변수에 담아 편법으로 오류를 없앴습니다.
+# 선생님의 해결방법
+# a = is_validation(dic)   하나의 변수에 하나 또는 두개의 변수를 모두 담는다 (이때 두개면 튜플 형태로 담긴다.)
+# if len(a) == 2:           a가 하나면 바꿀 필요없고 두개이면
+#     a, b = a              a를 a와 b에 나누어주면 된다.
