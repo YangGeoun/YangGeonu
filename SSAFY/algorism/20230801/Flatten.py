@@ -1,30 +1,12 @@
-T = 10
-for tc in range(1, T+1):
-    N = int(input())
-    box_list = list(map(int, input().split()))
-    high_list = [0] * 102
-    for el in box_list:
-        high_list[el] += 1
-    i = 101
-    j = 1
-    for dump in range(N):
-        while True:
-            if high_list[i] != 0:
-                high_list[i] -= 1
-                high_list[i-1] += 1
-                if high_list[i] == 0:
-                    i -= 1
-                break
-            else:
-                i -= 1
-        while True:
-            if high_list[j] != 0:
-                high_list[j] -= 1
-                high_list[j+1] += 1
-                if high_list[j] == 0:
-                    j += 1
-                break
-            else:
-                j += 1
-    print(f'#{tc} {i - j}')
+1. 이진탐색에 대해 간단히 설명하시오.
 
+정렬된 배열에서 특정한 값을 찾기위한 방법중 하나이다.
+먼저 배열의 중앙값을 찾고 그 값 찾는 값과 같다면 한번에 탐색이 끝나는 것이고
+그렇지 않고 찾는 값이 중앙값보다 작으면 배열의 처음부터 중앙값까지 다시 이진탐색을 진행하고
+찾는 값이 중앙값보다 크면 배열의 중앙값부터 끝까지 다시 이진탐색을 진행한다.
+위와 같은 탐색을 반복하며 값을 찾으면 끝나게 되거나 계속해서 탐색을 진행할수록 배열의 길이가 절반, 그 절반으로 
+그 길이가 짧아지다가 배열의 길이가 1이 되어도 그 값을 찾지 못하면 그 값은 배열에 없는 것이다.
+
+
+
+
