@@ -32,14 +32,14 @@ class myQueue:
         return False
 
 
-q = myQueue(5)
-
-q.enQueue(1)
-q.enQueue(2)
-q.enQueue(3)
-q.enQueue(4)
-q.enQueue(5)
-q.enQueue(6)
-
-
-
+T = int(input())
+for tc in range(1, T+1):
+    N, M = map(int, input().split())
+    arr = list(map(int, input().split()))
+    q = myQueue(1001)
+    for el in arr:
+        q.enQueue(el)
+    for i in range(M):
+        q.deQueue()
+        q.enQueue(arr[i % N])
+    print(f'#{tc} {q.deQueue()}')
