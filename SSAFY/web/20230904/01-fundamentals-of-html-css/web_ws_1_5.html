@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .inline-block{     /*class 속성에 inline-block 이라는 ㄱ밧을 포함하면 아래 스타일 적용*/
+      display: inline-block;
+    }
+
+    header{
+      background-color: rgb(40, 40, 40);
+    }
+
+    p {
+      color: gray;
+    }
+
+    .manu-right-img{
+      height:45px;
+      width:45px;
+      float: right;
+    }
+
+    .manu-left-img{
+      height:50px;
+      width:100px;
+    }
+
+    .logo{
+      object-fit: scale-down;
+    }
+
+    .multi {
+      
+      height: 40px;
+      width: 180px;
+      vertical-align: middle;
+    }
+
+    .mob {
+      border-top: 15px;
+      height: 40px;
+      width: 150px;
+      vertical-align: middle;
+    }
+
+    .happ {
+      height: 550px;
+      width: 550px;
+    }
+    
+    h2 {
+      vertical-align: middle;
+    }
+
+    h3 {
+      text-align: center;
+    }
+
+    div{
+      height: 5px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<header>
+  <img class="manu-left-img" src="images/ssafy_logo.png" alt="ssafy_logo">
+  <img class="manu-right-img" src="images/hamburger_btn.png" alt="hamburger_btn">
+</header>
+<body>
+  <img class="logo" src="images/ssafy_banner.png" alt="ssafy_banner">
+  <h1>삼성청년 SW아카데미 <br>대한미국 SW의 미래를 이끕니다.</h1>
+  <h2>삼성의 SW 교육 경험과 고용노동부의 취업 지원 노하우를 바탕으로, 취업 준비생에게 SW역략 향상 교육 및 다양한 취업지원 서비스를 제공하여 취업에 성공하도록 돕는 프로그램입니다.</h2>
+  <p>본 교육과정은 삼성이 주관하고 고용노동부가 후원하며, 아이들과 미래재단이 합께합니다.<br>(교육운영은 멀티캠퍼스에게 위탁 실시)</p>
+  
+  <h2 class="inline-block">
+    주관
+  </h2>
+  <img class="inline-block multi" src="images/multicampus_logo.png" alt="multicampus_logo">
+  <h2 class="inline-block">
+    후원
+  </h2>
+  <img class="inline-block mob" src="images/mob_logo_moel.png" alt="multicampus_logo">
+  
+  <img class="happ" src="images/happling.png" alt="happling">
+  <h3>최고의 교육</h3>
+  <div></div>
+  <img class="happ" src="images/happlossom.png" alt="happlossom">
+  <h3>맞춤형 교육</h3>
+  <div></div>
+  <img class="happ" src="images/happlower.png" alt="happlower">
+  <h3>자기주도적 교육</h3>
+  <div></div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+.board {
+  height: 800px;
+  width: 800px;
+  border: 2px solid black;
+}
+.line {
+  position: relative;
+  height: 100px;
+  width: 800px;
+  
+}
+.white {
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+}
+.black {
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  background-color: black;
+}

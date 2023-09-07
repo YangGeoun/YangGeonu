@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .flex-box-col{
+      display: flex;
+      flex-direction: column;
+      width: 152px;
+    }
+    .flex-box-row{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .card {
+      position: relative;
+      height: 310px;
+      width: 600px;
+      border: 1px solid black;
+    }
+    div {
+      overflow: hidden;
+    }
+    img {
+      float: left;
+      height: 200px;
+      width: 200px;
+    }
+    h2 {
+      position: absolute;
+      right: 20px;
+      top : 50px;
+      float: right;
+    }
+    h3,
+    h4{
+      float: left;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      display: block;
+      width: 200px;
+      text-align: center;
+    }
+    .float-left{
+      float: left;
+    }
+    p{
+      float: right;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    .top-maegin-zero{
+      margin-top: 0px ;
+      margin-right: 10px;
+    }
+    hr {
+      width: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div >
+      <img src="profile.jpg" alt="Profile Image">
+      <h2>Company Name</h2>
+    </div>
+    <div class="flex-box-row">
+      <div class="flex-box-col">
+        <h3>한글 이름</h3>
+        <h4>English Name</h4>
+      </div>
+      <div class="flex-box-col">
+        <p>Phone Number</p>
+        <p>Email</p>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <p class="top-maegin-zero">description</p>
+    </div>
+  </div>
+</body>
+</html>

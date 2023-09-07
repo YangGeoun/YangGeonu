@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .board {
+    position: relative;
+    height: 800px;
+    width: 800px;
+    border: 2px solid black;
+  }
+  .line {
+    position: relative;
+    height: 100px;
+    width: 800px;
+    
+  }
+  .white {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+  }
+  .black {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+  }
+  .pawn {
+    position: absolute;
+  }
+  img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .pawn {
+    position: absolute;
+    top : 400px;
+    left: 0px;
+  }
+
+  .king {
+    position: absolute;
+    top : 700px;
+    left : 600px;
+  }
+
+  .rook {
+    position: absolute;
+    top : 700px;
+    left : 500px;
+  }
+
+  .queen {
+    position: absolute;
+    top : 400px;
+    left: 0px;
+  }
+  
+  </style>
+<body>
+  <div class="board">
+    <div class="line">
+      <div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div>
+    </div>
+    <div class="line">
+      <div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div>
+    </div>
+    <div class="line">
+      <div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div>
+    </div>
+    <div class="line">
+      <div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div>
+    </div>
+    <div class="line">
+      <div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div>
+    </div>
+    <div class="line">
+      <div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div>
+    </div>
+    <div class="line">
+      <div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div>
+    </div>
+    <div class="line">
+      <div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div><div class="black"></div><div class="white"></div>
+    </div>
+    <img class="pawn" src="black_pawn.png" alt="black_pawn">
+    <img class="queen" src="white_king.png" alt="white_king">
+    <img class="king" src="white_queen.png" alt="white_queen">
+    <img class="rook" src="white_rook.png" alt="white_rook">
+  </div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&family=Noto+Sans">
+  <style>
+    .ssafy-banner{
+      width:100%; 
+    }
+
+    .bold{
+      font-weight: bold;
+    }
+
+    header{
+      display: flex;
+      position: relative;
+    }
+
+    .absolute {
+      position: absolute;
+    }
+
+    .s-logo {
+      width: 30%;
+      left: 2%;
+      top: 2%;
+    }
+
+    .h-btn {
+      width: 10%;
+      right: 5%;
+      top: 5%;
+    }
+
+    @media screen and (min-width:410px) {
+      .size {
+        font-size: x-large;
+      }
+    }
+
+    @media screen and (max-width:410px) and (min-width:370px) {
+      .size {
+        font-size: larger;
+      }
+    }
+    @media screen and (max-width:370px) and (min-width:350px) {
+      .size {
+        font-size: large;
+      }
+    }
+    @media screen and (max-width:350px) and (min-width:280px) {
+      .size {
+        font-size: medium;
+      }
+    }
+    @media screen and (max-width:280px) {
+      .size {
+        font-size: small;
+      }
+    }
+
+
+    .banner-text{
+      left: 5%;
+      bottom: 0;
+      color: white;
+    }
+
+    .b{
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    section {
+      background-color: rgb(248, 248, 248);
+      padding: 5%;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+    }
+
+    .f-d-c {
+      flex-direction: column;
+    }
+
+    .logo{
+      height: 30px;
+      max-width: 25%;
+    }
+
+    .happ {
+      width: 40%;
+    }
+
+    h3{
+      margin-top: 2%;
+      margin-bottom: 2%;
+    }
+
+    div {
+      margin-bottom: 5%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="ssafy-banner" src="images/ssafy_banner.png" alt="ssafy-banner">
+    <img class="absolute s-logo" src="images/ssafy_logo.png" alt="ssafy_logo">
+    <img class="absolute h-btn" src="images/hamburger_btn.png" alt="hamburger_btn">
+    <div class="absolute banner-text size">
+      <p1 class="b">삼성청년SW아카데미<br></p1>
+      <p1 class="b"><strong>대한민국SW의 미래</strong>를 이끕니다.</p1>
+    </div>
+    </header>
+    <section>
+      <p1 class="b bold">삼성의 SW 교육 경험과 고용노동부의 취업 지원 노하우를 바탕으로, 취업 준비생에게 SW역략 향상 교육 및 다양한 취업지원 서비스를 제공하여 취업에 성공하도록 돕는 프로그램입니다.<br></p1>
+      <p>본 교육과정은 삼성이 주관하고 고용노동부가 후원하며, 아이들과 미래재단이 합께합니다.<br>(교육운영은 멀티캠퍼스에게 위탁 실시)</p>
+      <hr>
+      <div class="flex">
+        <h3 >주관</h3>
+        <img class="logo" src="images/multicampus_logo.png" alt="multicampus_logo">
+        <h3  style="margin-left: 5%;">후원</h3>
+        <img class="logo" src="images/mob_logo_moel.png" alt="mob_logo_moel">
+      </div>
+      <div class="flex f-d-c" style="background-color: white;">
+        <img class="happ" src="images/happling.png" alt="happling">
+        <h3>최고의 교육</h3>
+        <div style="height: 2px; width: 100%; background-color: blue;"></div>
+      </div>
+      <div class="flex f-d-c" style="background-color: white;">
+        <img class="happ" src="images/happlossom.png" alt="happlossom">
+        <h3>맞춤형 교육</h3>
+        <div style="height: 2px; width: 100%; background-color: blue;"></div>
+      </div>
+      <div class="flex f-d-c" style="background-color: white;">
+        <img class="happ" src="images/happlower.png" alt="happlower">
+        <h3>자기주도적 학습</h3>
+        <div style="height: 2px; width: 100%; background-color: blue;"></div>
+      </div>
+    </section>
+    
+</body>
+</html>
