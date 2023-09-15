@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block name %}
+<p> 이름 : 이싸피</p>
+{% endblock name %}
+
+{% block age %}
+<p> 나이 : {{ age|random }} </p>
+{% endblock age %}
+
+{% block grade %}
+<p> 등급 : {{ grade|random|capfirst }} </p>
+{% endblock grade %}
+
+

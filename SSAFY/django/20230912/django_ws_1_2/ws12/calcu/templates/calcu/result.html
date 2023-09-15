@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>계산결과</h1>
+  {% load mathfilters %}
+    <p>{{ f_num }} + {{ s_num }} = {{ f_num|add:s_num }}</p>
+    <p>{{ f_num }} * {{ s_num }} = {{ f_num|mul:s_num }}</p>
+    <p>{{ f_num }} - {{ s_num }} = {{ f_num|sub:s_num }}</p>
+  {% if s_num == 0 %}
+    <p>계산할 수 었습니다</p>
+  {% else %}
+    <p>{{ f_num }} / {{ s_num }} = {{ f_num|div:s_num }}</p>
+  {% endif %}
+ 
+
+</body>
+</html>
