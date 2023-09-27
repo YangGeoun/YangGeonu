@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class='container'>
+  <h1>여기는 update</h1>
+  
+  <form action="{% url "articles:update" article.pk%}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value='편집'>
+  </form>
+  <a href="{% url "articles:index" %}"><button>뒤로가기</button></a>
+</div>
+{% endblock content %}
