@@ -1,33 +1,23 @@
+T = int(input())
+di = [-1,1,0,0]
+dj = [0,0,-1,1]
 
 
-def comb(i,cnt):
-    if cnt == 7:
-        # print(selected)
-        sum_v = 0
-        for j in range(9):
-            if selected[j] == 1:
-                sum_v += lst[j]
-        # print(sum_v)
-        for j in range(9):
-            if sum_v == 100:
-                print(lst[j])
-
-    if i == 9:
+def dfs(x,y,num):
+    if len(num) == 7:
+        set_a.add(num)
         return
+    for d in range(4):
+        ni = x + di[d]
+        nj = y + dj[d]
+        if 0 <= ni < 4 and 0 <= nj < 4:
+            dfs(ni,nj,num + arr[ni][nj])
 
-    selected[i] = 1
-    comb(i+1,cnt+1)
-    selected[i] = 0
-    comb(i+1,cnt)
 
-
-
-lst = []
-
-for _ in range(9):
-    tall = int(input())
-    lst.append(tall)
-# print(lst)   아홉명 난쟁이들키
-# 9명중 7명 뽑아서 합이 100이 되는 키들 출력
-selected = [0] * 9
-comb(0,0)
+for tc in range(1,T+1):
+    arr = [list(input().split()) for _ in range(4)]
+    set_a = set()
+    for i in range(4):
+        for j in range(4):
+            dfs(i,j,arr[i][j])
+    print(f'#{tc} {len(set_a)}')
