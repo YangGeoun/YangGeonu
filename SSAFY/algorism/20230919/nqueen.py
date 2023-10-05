@@ -3,9 +3,9 @@
 def nqueen(row):
     global cnt
     if row == N:
-        for i in board:
-            print(i)
-        print()
+        # for i in board:
+        #     print(i)
+        # print()
         cnt += 1
         return
     # 모든 열에 일단 놓아보고, 놓아지면, 놓고 다음 행 놓으러 가기
