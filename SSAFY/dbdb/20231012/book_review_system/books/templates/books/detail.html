@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <h1>책 상세 정보</h1>
+  <p>등록 번호 : {{ book.pk }} </p>
+  <p>제목 : {{ book.title }} </p>
+  <p>설명 : {{ book.description }} </p>
+  <hr>
+  <h3>리뷰 등록</h3>
+  {% if request.user.is_authenticated %}
+  <form action="{% url "books:create_review" book.pk %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="리뷰 작성">
+  </form>
+  <hr>
+  {% endif %}
+  <ul>
+  {% for review in book.review_set.all %}
+    <li>{{ review.user }} - {{ review.content }}</li>
+    {% if request.user == review.user %}
+    <form action="{% url "books:delete_review" book.pk review.pk%}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="리뷰삭제">
+    </form>
+    {% endif %}
+    
+  {% endfor %}
+  </ul>
+{% endblock content %}
