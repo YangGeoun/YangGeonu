@@ -1,0 +1,57 @@
+[
+{
+    "model": "articles.comment",
+    "pk": 1,
+    "fields": {
+        "article": 1,
+        "user": 1,
+        "content": "ㅇㅇ",
+        "created_at": "2023-10-17T00:20:10.281Z",
+        "updated_at": "2023-10-17T00:20:10.281Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 2,
+    "fields": {
+        "article": 2,
+        "user": 1,
+        "content": "ㅇㅇddsasd",
+        "created_at": "2023-10-17T00:20:28.586Z",
+        "updated_at": "2023-10-17T00:20:28.586Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 3,
+    "fields": {
+        "article": 1,
+        "user": 2,
+        "content": "ㅁㄴㅇㄻㄴ",
+        "created_at": "2023-10-17T01:23:05.601Z",
+        "updated_at": "2023-10-17T01:23:05.601Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 4,
+    "fields": {
+        "article": 2,
+        "user": 2,
+        "content": "ㅁㄴㄻㄴㅇㄻㅇ",
+        "created_at": "2023-10-17T01:23:14.351Z",
+        "updated_at": "2023-10-17T01:23:14.351Z"
+    }
+},
+{
+    "model": "articles.comment",
+    "pk": 5,
+    "fields": {
+        "article": 3,
+        "user": 2,
+        "content": "ㅁㄴㅇㄻㄴㄹㅈㅎㅁ귣",
+        "created_at": "2023-10-17T01:23:21.031Z",
+        "updated_at": "2023-10-17T01:23:21.031Z"
+    }
+}
+]

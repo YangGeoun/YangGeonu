@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>프로필</h1>
+    사용자 이름 : {{ person.username }}
+    <hr>
+    {{ person.username }}가 팔로우하는 사용자들 :
+    <p>{{ person.followings.all|length }}명</p>
+    {% for following in person.followings.all %}
+        <p>{{ following.username }}</p>
+    {% endfor %}
+    <hr>
+    {{ person.username }}를 팔로우하는 사용자들 :
+    <p>{{ person.followers.all|length }}명</p>
+    {% for follower in person.followers.all %}
+        <p>{{ follower.username }}</p>
+    {% endfor %}
+    <form action="{% url "accounts:follow" person.pk %}" method="post">
+        {% csrf_token %}
+        {% if request.user in person.followers.all %}
+            <input type="submit" value="팔로우 취소">
+        {% else %}
+            <input type="submit" value="팔로우">
+        {% endif %}
+    </form>
+    <hr>
+    {{ person.username }}가 작성한 게시글들 :
+    {% for article in person.article_set.all %}
+        <p><a href="{% url "articles:detail" article.pk %}" >{{ article.title }}</a></p>
+    {% endfor %}
+    <hr>
+    {{ person.username }}가 작성한 댓글들 :
+    {% for comment in person.comment_set.all %}
+        <p>{{ comment.content }}</p>
+    {% endfor %}
+    <hr>
+</body>
+</html>
