@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    // const req = new XMLHttpRequest()
+    // req.addEventListener('load', reqListener)
+    // req.open('GET', 'https://dog.ceo/api/breeds/image/random')
+    // req.send()
+    
+    const promise = new Promise((reslove,reject) => {
+      // resolve가 호출되면 promise 객체는 fulfulled 상태로 변경
+      // reject가 호출되면 promise 객체는 rejected 상태로 변경
+      function reqListener() {
+        console.log(this.responseText)
+        console.log(this)
+        if (this.status >=200 && this.status < 400){
+          reslove(this.responseText)
+        } else {
+          reject(this.responseText)
+        }
+      }
+
+      const req = new XMLHttpRequest()
+      req.addEventListener('load', reqListener)
+      req.open('GET', 'https://dog.ceo/api/breeds/image/random')
+      req.send()
+    })
+
+    promise
+    .then((response) => {
+      console.log('실행되었습니다.')
+      console.log(response)
+      // json(문자열) >> 객체로 변횐
+      obj = JSON.parse(response)
+      // JSON.stringiFy(obj)
+      //
+    })
+    .catch((error)=>{
+      console.log('실패.')
+      console.log(error)
+    })
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+    .bg-red {
+      background-color: red;
+    }
+    .bg-blue {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <div :class="basicClass">
+      box1
+    </div>
+    
+    <div :class="{[attrBg]:isBox, [attrBox]:isBox}">
+      box1
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp,ref } = Vue
+    const app = createApp({
+      setup() {
+        const basicClass = ref('box')
+        const isBox = ref(true)
+        const attrBg = ref('box')
+        const attrBox = ref('bg-red')
+        return {
+          basicClass,
+          isBox,
+          attrBg,
+          attrBox,
+        }
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
+</html>
