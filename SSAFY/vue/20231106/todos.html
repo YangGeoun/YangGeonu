@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .completed{
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>오늘 할 일</h1>
+    <select v-model="selected">
+      <option value="" disabled>선택하세요</option>
+      <option value="all" >전체</option>
+      <option value="completed" >완료</option>
+      <option value="inprogress" >미완료</option>
+    </select>
+
+    <input type="text" v-model="inputText">
+    <button @:click="addTodo">추가</button>
+    <ul>
+      <li v-for="todo in selectedTodos" 
+      :key="todo.id" 
+      :class="{completed:todo.isCompleted}" 
+      @:click="toggleCompleted(todo)">
+        {{ todo.content }}
+        <button @:click="removeTodo(todo.id)">X</button>
+      </li>
+    </ul>
+    
+  
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref, computed } = Vue
+    const app = createApp({
+      setup() {
+        let id = 0
+        const selected = ref('all')
+        const todos = ref([
+          {id:id++, content:'text1', isCompleted:false},
+          {id:id++, content:'text2', isCompleted:false},
+          {id:id++, content:'text3', isCompleted:false},
+        ])
+
+        const inputText = ref('')
+
+        const addTodo = function(){
+          const newTodo = {
+            id:id++, content:inputText.value, isCompleted:false
+          }
+          todos.value.push(newTodo)
+          inputText.value = ""
+        }
+
+        const removeTodo = function(targetId){
+          todos.value = todos.value.filter((todo)=>{
+            return todo.id != targetId
+          })
+        }
+
+        const toggleCompleted = function(todo){
+          todo.isCompleted = !todo.isCompleted
+        }
+
+        const selectedTodos = computed(()=>{
+          return todos.value.filter((todo)=>{
+            if (selected.value === "all"){
+              return true
+            }
+            else if (selected.value === "completed"){
+              return todo.isCompleted
+            }
+            else{
+              return !todo.isCompleted
+            }
+          })
+        }
+        )
+
+        return {
+          selected,
+          todos,
+          inputText,
+          addTodo,
+          removeTodo,
+          toggleCompleted,
+          selectedTodos,
+        }
+      }
+    })
+    app.mount("#app")
+  </script>
+</body>
+</html>

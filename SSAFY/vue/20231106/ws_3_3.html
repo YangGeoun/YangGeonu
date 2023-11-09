@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      background-color: #f5f5f5;
+    }
+    .cheap {
+      background-color: #e1f7e1;
+    }
+    .expensive {
+      background-color: #f7e1e1;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <div v-show="selectedInfos.length">
+      <h3 >관람 예정인 전시 : <span>{{ selectedInfos.join(", ") }}</span> </h3>
+      <p>예상 총 금액 : {{ totalPrice }} </p>
+    </div >
+    <h3 v-show="!selectedInfos.length">관람 예정인 전시가 없습니다.</h3>
+    <hr>
+    <p>전시 중인 정보만 보기 <input type="checkbox" v-model="checked"></p>
+    <ul>
+      <li v-for="exhibition in showList" :key="exhibition.name" :class="{cheap:exhibition.fee<=5000, expensive:exhibition.fee>=20000}">
+        <p v-if="exhibition.isOpened">전시 관함 하기 <input type="checkbox" v-model="exhibition.isSelected"></p>
+        <p v-else style="color: red;">전시가 종료되어 관람 할 수 없습니다.</p>
+        <h3> {{ exhibition.name }} </h3>
+        <hr>
+        <p>{{ exhibition.rocate }}</p>
+        <p>가격 : {{ exhibition.fee }}</p>
+        <hr>
+      </li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    /*
+			1. 주어진 전시 정보를 객체에 담고, 모든 객체를 하나의 배열에 할당하시오.
+			2. 반복문을 활용하여 각 전시 정보를 화면에 렌더링하시오.
+				- key 값은 전시 이름으로 할당한다.
+      - 전시 정보
+            무라카미 다카시 : 무라카시좀비
+            부산 시립 미술관
+            1000
+
+            마우라치오 카텔란 개인전
+            리움 미술관
+            30000
+
+            조선백자전
+            리움 미술관
+            30000
+
+            한국 실험미술 1960 - 1970
+            국립현대미술관
+            0
+
+            에드워드 호퍼 : 길 위에서
+            서울 시립 미술관
+            1000
+
+            알렉산더 칼더 x 이우환
+            국제갤러리 서울점
+            15000
+    */
+    const { createApp, ref, computed, watch } = Vue
+    const app = createApp({
+      setup(){
+        let id = 0
+        const checked = ref(false)
+        const exhibitions = ref([
+        { name:"무라카미 다카시 : 무라카시좀비",
+          rocate : "부산 시립 미술관",
+          fee : 1000,
+          isOpened:true,
+          isSelected:false,
+
+        },
+        { name:"마우라치오 카텔란 개인전",
+          rocate : "리움 미술관",
+          fee : 30000,
+          isOpened:true,
+          isSelected:false,
+        },
+        { name:"조선백자전",
+          rocate : "리움 미술관",
+          fee : 30000,
+          isOpened:true,
+          isSelected:false,
+        },
+        { name:"한국 실험미술 1960 - 1970",
+          rocate : "국립현대미술관",
+          fee : 0,
+          isOpened:true,
+          isSelected:false,
+        },
+        { name:"에드워드 호퍼 : 길 위에서",
+          rocate : "서울 시립 미술관",
+          fee : 1000,
+          isOpened:false,
+          isSelected:false,
+        },
+        { name:"알렉산더 칼더 x 이우환",
+          rocate : "국제갤러리 서울점",
+          fee : 15000,
+          isOpened:false,
+          isSelected:false,
+        },
+        ])
+        
+        const showList = computed(() => {
+          return exhibitions.value.filter((exhibition)=>{
+            if (checked.value) {
+              
+              return exhibition.isOpened
+            }
+            else {
+              return true
+            }
+          })
+        })
+
+        const filterdInfos = ref([])
+        const selectedInfos = ref([])
+        const totalPrice = ref(0)
+        const exhibitionsWatch = watch(exhibitions.value,(newV, oldV) => {
+          filterdInfos.value = exhibitions.value.filter((exhibition) => {
+            return exhibition.isSelected
+          })
+          selectedInfos.value = filterdInfos.value.map((exhibition)=>{
+            return exhibition.name
+          })
+          let sumV = 0
+          filterdInfos.value.forEach((exhibition) => {
+            sumV += exhibition.fee
+          })
+          totalPrice.value = sumV
+        })
+        return {
+          exhibitions,
+          checked,
+          showList,
+          filterdInfos,
+          selectedInfos,
+          totalPrice,
+        }
+
+        
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
+</html>
